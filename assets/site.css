@@ -1,0 +1,70 @@
+/* Adrienne Ball — rebuilt from Adobe Portfolio layout */
+:root{--ink:#111;--muted:#999;--nav:#aaa;--bg:#fff;--gap:8px;--edge:14px;
+  --sans:"Figtree","Proxima Nova",system-ui,sans-serif;--slab:"Bitter","Adelle",Georgia,serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:36px 25px 30px;position:relative}
+.logo{font-weight:600;font-size:22px;line-height:22px;text-transform:uppercase;text-decoration:none;color:var(--ink);letter-spacing:.01em}
+.site-header nav{display:flex;gap:22px}
+.site-header nav a{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--nav);text-decoration:none;transition:color .2s}
+.site-header nav a:hover,.site-header nav a.active{color:var(--ink)}
+.burger{display:none;background:none;border:0;padding:6px;cursor:pointer}
+.burger i{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0}
+main{padding:0 var(--edge)}
+/* Work grid */
+.covers{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.cover{position:relative;display:block;aspect-ratio:202/158;overflow:hidden;background:#f5f5f5}
+.cover img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.cover-info{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;background:rgba(0,0,0,.45);color:#fff;opacity:0;transition:opacity .3s}
+.cover:hover .cover-info,.cover:focus-visible .cover-info{opacity:1}
+.cover:hover img{transform:scale(1.03)}
+.cover-title{font-family:var(--slab);font-weight:700;font-size:30px;line-height:1.15}
+.cover-date{font-size:14px;margin-top:8px;letter-spacing:.05em}
+/* Project pages */
+.project-header,.mod.text{max-width:800px;margin:0 auto}
+.project-header{padding:62px 0 60px}
+h1{font-family:var(--slab);font-weight:700;font-size:60px;line-height:70px;margin:0 0 0;padding-bottom:20px;color:var(--ink)}
+.description{font-size:20px;line-height:28px;color:var(--muted);margin:0}
+.description a{color:var(--ink)}
+.mod{padding-bottom:40px}
+.mod.text{font-size:16px;line-height:1.6;color:#333}
+.mod.text div{margin-bottom:1em}
+.mod.image{max-width:1140px;margin:0 auto}
+.row{display:flex;gap:var(--gap);margin-bottom:var(--gap)}
+.cell{display:block;min-width:0;cursor:zoom-in}
+.cell img{width:100%;height:auto}
+.embed iframe{width:100%;aspect-ratio:16/9;border:0}
+.pager{display:flex;justify-content:space-between;max-width:1140px;margin:40px auto 0;padding:30px 0;border-top:1px solid #eee;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.pager a{text-decoration:none;color:var(--nav)}.pager a:hover{color:var(--ink)}
+/* Contact */
+.contact label{display:block;font-size:14px;color:#333;margin-bottom:22px}
+.contact input,.contact textarea{display:block;width:100%;margin-top:8px;padding:12px;border:1px solid #ddd;font:inherit;font-size:16px;border-radius:0;background:#fff}
+.contact input:focus,.contact textarea:focus{outline:2px solid var(--ink);outline-offset:-1px}
+.contact button{background:var(--ink);color:#fff;border:0;padding:14px 34px;font:600 13px var(--sans);text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+.thanks{font-family:var(--slab);font-size:24px}
+footer{text-align:center;padding:40px 0 50px}
+.totop{font-size:13px;color:var(--nav);text-decoration:none}.totop:hover{color:var(--ink)}
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(255,255,255,.97);display:flex;align-items:center;justify-content:center;z-index:50;cursor:zoom-out;padding:30px}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain}
+.lb-close{position:absolute;top:14px;right:20px;font-size:36px;background:none;border:0;cursor:pointer;color:var(--ink)}
+@media (max-width:900px){.covers{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){
+  :root{--edge:16px}
+  .site-header{padding:24px 16px}
+  .burger{display:block}
+  .site-header nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#fff;padding:0 16px 16px;z-index:10}
+  .site-header.open nav{display:flex}
+  .site-header nav a{font-size:15px;padding:12px 0;border-top:1px solid #eee}
+  .covers{grid-template-columns:1fr}
+  .cover-info{opacity:1;background:linear-gradient(transparent 45%,rgba(0,0,0,.55));justify-content:flex-end;align-items:flex-start;text-align:left}
+  .cover-title{font-size:24px}
+  h1{font-size:40px;line-height:46px}
+  .project-header{padding:30px 0 30px}
+  .row{flex-direction:column}
+  .cell{flex:none!important}
+}
